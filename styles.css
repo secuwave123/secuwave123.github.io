@@ -408,7 +408,7 @@ main {
 
 .services-card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
 }
 
@@ -446,7 +446,7 @@ main {
 
 .portfolio-card-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 200px);
   gap: 1rem;
 }
@@ -474,6 +474,10 @@ main {
 
 .portfolio-card:nth-child(4) {
   background: linear-gradient(135deg, #1a2a3a, #0f1828);
+}
+
+.portfolio-card:nth-child(5) {
+  background: linear-gradient(135deg, #3a2a1a, #281f0f);
 }
 
 .portfolio-card-overlay {
