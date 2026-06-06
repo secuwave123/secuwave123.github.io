@@ -4,11 +4,21 @@ const primaryNavigationLinks = document.getElementById("primaryNavigationLinks")
 const contactFormElement = document.getElementById("contactForm");
 const formSuccessMessageElement = document.getElementById("formSuccessMessage");
 
+const careerTrackKeywordList = [
+  "금융권",
+  "행정통계",
+  "퀀트",
+  "데이터분석",
+  "휴먼개발자",
+  "사이버보안인프라",
+];
+
 const scrollRevealSelectorList = [
   ".service-card",
   ".portfolio-card",
-  ".about-content",
-  ".about-visual-panel",
+  ".about-intro-panel",
+  ".about-feature-card",
+  ".about-highlight-card",
   ".contact-intro",
   ".contact-form",
 ];
@@ -201,6 +211,26 @@ function initializeSmoothAnchorNavigation() {
   });
 }
 
+function initializeCareerTrackKeywordRotation() {
+  const careerTrackKeywordElement = document.getElementById("careerTrackKeyword");
+
+  if (!careerTrackKeywordElement) {
+    return;
+  }
+
+  let currentKeywordIndex = 0;
+
+  window.setInterval(() => {
+    careerTrackKeywordElement.classList.add("is-fading");
+
+    window.setTimeout(() => {
+      currentKeywordIndex = (currentKeywordIndex + 1) % careerTrackKeywordList.length;
+      careerTrackKeywordElement.textContent = careerTrackKeywordList[currentKeywordIndex];
+      careerTrackKeywordElement.classList.remove("is-fading");
+    }, 350);
+  }, 2800);
+}
+
 function initializeWebsiteInteractions() {
   window.addEventListener("scroll", updateHeaderScrollAppearance, { passive: true });
   updateHeaderScrollAppearance();
@@ -210,6 +240,7 @@ function initializeWebsiteInteractions() {
 
   initializeScrollRevealAnimations();
   initializeSmoothAnchorNavigation();
+  initializeCareerTrackKeywordRotation();
 }
 
 initializeWebsiteInteractions();
